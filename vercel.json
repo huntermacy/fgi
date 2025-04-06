@@ -5,13 +5,16 @@
       "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "buildCommand": "cd client && npm run build",
+        "buildCommand": "npm run build:client",
         "outputDirectory": "client/dist"
       }
     },
     {
       "src": "server/package.json",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "buildCommand": "npm run build:server"
+      }
     }
   ],
   "routes": [
