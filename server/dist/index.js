@@ -1,26 +1,27 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
-const dotenv_1 = __importDefault(require("dotenv"));
-const path_1 = __importDefault(require("path"));
-dotenv_1.default.config();
-const app = (0, express_1.default)();
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+// Get the directory name in ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config();
+const app = express();
 const port = process.env.PORT || 3001;
-app.use((0, cors_1.default)());
-app.use(express_1.default.json());
+app.use(cors());
+app.use(express.json());
 // Serve static files from the React app dist directory
-app.use(express_1.default.static(path_1.default.join(__dirname, '../../client/dist')));
+app.use(express.static(path.join(__dirname, '../../client/dist')));
 app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', message: 'Server is running' });
 });
 // Handle client-side routing - send all requests to index.html
 app.get('*', (req, res) => {
-    res.sendFile(path_1.default.join(__dirname, '../../client/dist/index.html'));
+    res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
 });
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+// Export the Express API
+export default app;
