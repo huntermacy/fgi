@@ -12,11 +12,15 @@ import {
   Icon,
   SimpleGrid,
   Divider,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import Header from '../components/Header';
+import { Link } from 'react-router-dom';
 
-const LandingPage: React.FC = () => {
+const Home: React.FC = () => {
+  const headingSize = useBreakpointValue({ base: '2xl', md: '4xl' });
+  const textSize = useBreakpointValue({ base: 'md', md: 'lg' });
 
   return (
     <Box>
@@ -27,14 +31,22 @@ const LandingPage: React.FC = () => {
         <Container maxW="container.xl" py={20}>
           <Flex direction={{ base: 'column', md: 'row' }} align="center" gap={8}>
             <VStack align="start" spacing={6} flex={1}>
-              <Heading size="2xl" color="blue.900">
+              <Heading size={headingSize} color="blue.900">
                 First Generation Investors
               </Heading>
-              <Text fontSize="xl" color="gray.600">
-                Inspiring students to own their financial futures
+              <Text fontSize={textSize} color="gray.600">
+                Empowering first-generation students with financial literacy and investment knowledge.
               </Text>
-              <Button size="lg" colorScheme="blue" px={8}>
-                Donate Now
+              <Button
+                as={Link}
+                to="/courses"
+                colorScheme="blue"
+                size="lg"
+                px={8}
+                py={6}
+                fontSize="lg"
+              >
+                Explore Courses
               </Button>
             </VStack>
             <Box flex={1}>
@@ -120,4 +132,4 @@ const LandingPage: React.FC = () => {
   );
 };
 
-export default LandingPage; 
+export default Home; 
