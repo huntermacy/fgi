@@ -1,77 +1,100 @@
-# First Generation Investors Web Application
+# Financial Literacy Class Management Tool
 
-A modern web application for First Generation Investors, built with React, TypeScript, and Node.js.
+A modern, responsive web application for managing financial literacy courses, built with React, TypeScript, and Chakra UI.
 
-## Project Structure
+## Features
 
-```
-fgi/
-├── client/           # Frontend React application
-└── server/           # Backend Node.js/Express server
-```
+- User authentication (mock)
+- Course enrollment and progress tracking
+- Interactive learning modules with quizzes
+- Progress persistence using localStorage
+- Responsive design for all devices
+
+## Tech Stack
+
+- React 18
+- TypeScript
+- Vite
+- Chakra UI
+- React Router v6
+- React Icons
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js (v16 or higher)
-- npm (v7 or higher)
+- npm or yarn
 
 ### Installation
 
 1. Clone the repository
-2. Install dependencies for both client and server:
-
 ```bash
-# Install client dependencies
+git clone <repository-url>
 cd client
-npm install
-
-# Install server dependencies
-cd ../server
-npm install
 ```
 
-### Running the Application
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
 
-1. Start the backend server:
+3. Start the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Building for Production
 
 ```bash
-cd server
-npm run dev
+npm run build
+# or
+yarn build
 ```
 
-2. Start the frontend development server:
+The build output will be in the `dist` directory.
 
-```bash
-cd client
-npm run dev
+## Project Structure
+
+```
+src/
+  ├── components/     # Reusable UI components
+  ├── context/       # React context providers
+  ├── pages/         # Page components
+  ├── data/          # Mock data and types
+  ├── App.tsx        # Main application component
+  └── main.tsx       # Application entry point
 ```
 
-The application will be available at:
-- Frontend: http://localhost:5173
-- Backend: http://localhost:3001
+## Development
 
-## Features
+- The application uses TypeScript for type safety
+- Chakra UI components for consistent styling
+- React Router for navigation
+- Context API for state management
+- Local storage for data persistence
 
-- Modern, responsive landing page
-- Type-safe development with TypeScript
-- Scalable architecture
-- RESTful API backend
+## Available Scripts
 
-## Technologies Used
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-- Frontend:
-  - React
-  - TypeScript
-  - Chakra UI
-  - React Router
-  - Axios
+## Contributing
 
-- Backend:
-  - Node.js
-  - Express
-  - TypeScript
-  - CORS
-  - dotenv
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
