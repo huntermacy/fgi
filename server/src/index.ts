@@ -11,8 +11,8 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from the React app build directory
-app.use(express.static(path.join(__dirname, '../../client/build')));
+// Serve static files from the React app dist directory
+app.use(express.static(path.join(__dirname, '../../client/dist')));
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'Server is running' });
@@ -20,7 +20,7 @@ app.get('/api/health', (req, res) => {
 
 // Handle client-side routing - send all requests to index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../client/build/index.html'));
+  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
 });
 
 app.listen(port, () => {
